@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
@@ -8,17 +8,45 @@ import TaskDetail from "./pages/TaskDetail";
 import Navbar from "./components/Navbar";
 
 function App() {
-  const token = localStorage.getItem("token");
+  const [token, setToken] = useState(localStorage.getItem("token"));
+
+  const handleLogin = (newToken) => {
+    localStorage.setItem("token", newToken);
+    setToken(newToken); // trigger re-render
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setToken(null); // trigger re-render
+  };
 
   return (
     <div>
-      {token && <Navbar />}
+      {token && <Navbar onLogout={handleLogout} />}
       <Routes>
-        <Route path="/" element={token ? <Navigate to="/dashboard" /> : <LoginPage />} />
+        <Route
+          path="/"
+          element={
+            token ? (
+              <Navigate to="/dashboard" />
+            ) : (
+              <LoginPage onLogin={handleLogin} />
+            )
+          }
+        />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/dashboard" element={token ? <Dashboard /> : <Navigate to="/" />} />
-        <Route path="/tasks/new" element={token ? <TaskForm /> : <Navigate to="/" />} />
-        <Route path="/tasks/:id" element={token ? <TaskDetail /> : <Navigate to="/" />} />
+        <Route
+          path="/dashboard"
+          element={token ? <Dashboard /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/tasks/new"
+          element={token ? <TaskForm /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/tasks/:id"
+          element={token ? <TaskDetail /> : <Navigate to="/" />}
+        />
       </Routes>
     </div>
   );
