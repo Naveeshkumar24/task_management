@@ -1,0 +1,296 @@
+/* ================= Global Styles ================= */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ================= Navbar ================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #4b6cb7, #182848);
+  color: white;
+  padding: 15px 30px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar a {
+  color: white;
+  margin-right: 15px;
+  font-weight: 500;
+}
+
+.navbar button {
+  background: #ff5e5e;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar button:hover {
+  background: #ff3b3b;
+}
+
+/* ================= Dashboard & Cards ================= */
+.dashboard, .task-form, .task-detail {
+  background: white;
+  border-radius: 12px;
+  padding: 25px 30px;
+  max-width: 900px;
+  margin: 50px auto;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.dashboard h1, .dashboard h2 {
+  font-size: 28px;
+  color: #182848;
+  margin-bottom: 20px;
+}
+
+.task-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.task-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* ================= Table ================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+tr {
+  transition: background 0.3s;
+}
+
+tr:hover {
+  background: #f0f4ff;
+}
+
+/* ================= Priority Badges ================= */
+.low { background-color: #d1e7dd; border-radius: 5px; text-align: center; }
+.medium { background-color: #fff3cd; border-radius: 5px; text-align: center; }
+.high { background-color: #f8d7da; border-radius: 5px; text-align: center; }
+
+/* ================= Status Badges ================= */
+.status {
+  padding: 5px 10px;
+  border-radius: 15px;
+  color: white;
+  font-weight: 500;
+}
+
+.status.pending { background: #007bff; }
+.status.completed { background: #28a745; }
+
+/* ================= Buttons ================= */
+button, .btn {
+  padding: 8px 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+button.edit {
+  background: #ffc107;
+  color: #212529;
+}
+
+button.delete {
+  background: #dc3545;
+  color: white;
+}
+
+button:hover {
+  filter: brightness(0.9);
+}
+
+/* ================= Pagination ================= */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  margin: 0 5px;
+  background: #4b6cb7;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.pagination button:hover {
+  background: #182848;
+}
+
+/* ================= Auth Forms (Login/Register) ================= */
+.auth-container {
+  background: white;
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.auth-container h2 {
+  margin-bottom: 25px;
+  font-weight: 600;
+  color: #182848;
+}
+
+.auth-container input[type="text"],
+.auth-container input[type="email"],
+.auth-container input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.auth-container input:focus {
+  border-color: #4b6cb7;
+  box-shadow: 0 0 6px rgba(75,108,183,0.3);
+  outline: none;
+}
+
+.auth-container button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #4b6cb7, #182848);
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.auth-container button:hover {
+  background: linear-gradient(90deg, #182848, #4b6cb7);
+}
+
+.auth-container .small-link {
+  display: block;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #4b6cb7;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.auth-container .small-link:hover {
+  text-decoration: underline;
+}
+
+.auth-container .message {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.auth-container .error {
+  background: #f8d7da;
+  color: #842029;
+}
+
+.auth-container .success {
+  background: #d1e7dd;
+  color: #0f5132;
+}
+
+/* ================= Task Form (Create/Edit) ================= */
+.task-form input,
+.task-form textarea,
+.task-form select {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.task-form input:focus,
+.task-form textarea:focus,
+.task-form select:focus {
+  border-color: #4b6cb7;
+  box-shadow: 0 0 6px rgba(75,108,183,0.3);
+  outline: none;
+}
+
+.task-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.task-form button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #4b6cb7, #182848);
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.task-form button:hover {
+  background: linear-gradient(90deg, #182848, #4b6cb7);
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 500px) {
+  .auth-container,
+  .task-form {
+    margin: 30px 20px;
+    padding: 30px 20px;
+  }
+  .dashboard {
+    margin: 30px 10px;
+    padding: 20px;
+  }
+}
